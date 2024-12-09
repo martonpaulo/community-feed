@@ -44,6 +44,10 @@ Future improvements to consider:
 - [ ] Retrieve all user data from the Random User API
 - [ ] Integrate TypeScript into the project
 - [ ] Make the feed responsive for mobile devices
+- [ ] Add linting and formatting to the project
+- [ ] Add screenshots to the README file
+- [ ] Host the project on GitHub Pages
+- [ ] Rewrite the README file with more detailed instructions and images/emojis
 
 ## License
 
