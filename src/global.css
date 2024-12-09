@@ -8,7 +8,10 @@
   --gray-800: #202024;
   --gray-900: #121214;
 
-  --green-500: #00875f;
+  --deep-purple: #7b2cbf;
+  --purple: #9d4edd;
+
+  --red-danger: #f75a68;
 }
 
 * {
