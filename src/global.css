@@ -14,6 +14,11 @@
   --red-danger: #f75a68;
 }
 
+:focus {
+  outline: transparent;
+  box-shadow: 0 0 0 2px var(--deep-purple);
+}
+
 * {
   margin: 0;
   padding: 0;

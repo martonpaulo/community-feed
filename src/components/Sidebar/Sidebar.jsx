@@ -1,24 +1,24 @@
 import { Pencil } from "phosphor-react";
 
 import styles from "./Sidebar.module.css";
+import { getUser } from "../../data/users";
+
+const user = getUser(0);
 
 export function Sidebar() {
   return (
     <aside className={styles.sidebar}>
       <img
         className={styles.cover}
-        src="https://images.unsplash.com/photo-1607706189992-eae578626c86?q=50&w=500"
-        alt="user background"
+        src={user.cover}
+        alt={`${user.name}'s cover picture`}
       />
 
       <div className={styles.profile}>
-        <img
-          src="https://randomuser.me/api/portraits/men/72.jpg"
-          alt="user profile picture"
-        />
+        <img src={user.avatar} alt={`${user.name}'s avatar`} />
 
-        <strong>Alex Doe</strong>
-        <span>Front-End Developer</span>
+        <strong>{user.name}</strong>
+        <span>{user.role}</span>
       </div>
 
       <footer>
