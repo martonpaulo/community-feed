@@ -13,8 +13,32 @@ const users = [
     role: "UI/UX Designer",
     avatar: "https://randomuser.me/api/portraits/women/70.jpg",
   },
+  {
+    id: 2,
+    name: "Rebecca Morales",
+    role: "Back-End Developer",
+    avatar: "https://randomuser.me/api/portraits/women/15.jpg",
+  },
+  {
+    id: 3,
+    name: "John Smith",
+    role: "Software Engineer",
+    avatar: "https://randomuser.me/api/portraits/men/52.jpg",
+  },
+  {
+    id: 4,
+    name: "Alice Johnson",
+    role: "Product Manager",
+    avatar: "https://randomuser.me/api/portraits/women/90.jpg",
+  },
+  {
+    id: 5,
+    name: "Daniel Lee",
+    role: "Data Scientist",
+    avatar: "https://randomuser.me/api/portraits/men/2.jpg",
+  },
 ];
 
-export function getUser(id) {
+export function getUserById(id) {
   return users.find((user) => user.id === id);
 }

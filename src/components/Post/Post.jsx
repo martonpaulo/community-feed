@@ -1,15 +1,19 @@
+import { getUserById } from "../../data/users";
+import { formatDate, timeAgo } from "../../utils/dateFormatter";
+import { Avatar } from "../Avatar/Avatar";
+import { Comment } from "../Comment/Comment";
+
 import styles from "./Post.module.css";
 
-export function Post({ author, description }) {
+export function Post({ data }) {
+  const { authorId, content, timestamp, comments } = data;
+  const author = getUserById(authorId);
+
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <img
-            className={styles.avatar}
-            src={author.avatar}
-            alt={`${author.name}'s avatar`}
-          />
+          <Avatar size={4} className={styles.avatar} user={author} />
 
           <div className={styles.authorInfo}>
             <strong>{author.name}</strong>
@@ -17,17 +21,14 @@ export function Post({ author, description }) {
           </div>
         </div>
 
-        <time
-          title="Published on December 9, 2024, 9:54 PM"
-          dateTime="2024-12-09 21:54:30"
-        >
-          <small>1 hour ago</small>
+        <time title={formatDate(timestamp)} dateTime={timestamp}>
+          <small>{timeAgo(timestamp)}</small>
         </time>
       </header>
 
       <div
         className={styles.content}
-        dangerouslySetInnerHTML={{ __html: description }}
+        dangerouslySetInnerHTML={{ __html: content }}
       ></div>
 
       <form className={styles.commentForm}>
@@ -39,6 +40,13 @@ export function Post({ author, description }) {
           <button type="submit">Comment</button>
         </footer>
       </form>
+
+      <div className={styles.commentList}>
+        {comments.length > 0 &&
+          comments
+            .map((comment) => <Comment key={comment.id} data={comment} />)
+            .reverse()}
+      </div>
     </article>
   );
 }

@@ -2,8 +2,7 @@ import { Header } from "./components/Header/Header";
 import { Post } from "./components/Post/Post";
 import { Sidebar } from "./components/Sidebar/Sidebar";
 
-import { getUser } from "./data/users";
-import { comments } from "./data/comments";
+import { posts } from "./data/posts";
 
 import styles from "./App.module.css";
 
@@ -18,13 +17,7 @@ export function App() {
         <Sidebar />
 
         <main>
-          {comments.map((comment) => (
-            <Post
-              key={comment.id}
-              author={getUser(comment.authorId)}
-              description={comment.content}
-            />
-          ))}
+          {posts.map((post) => <Post key={post.id} data={post} />).reverse()}
         </main>
       </div>
     </div>

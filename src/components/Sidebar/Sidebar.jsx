@@ -1,9 +1,10 @@
 import { Pencil } from "phosphor-react";
 
 import styles from "./Sidebar.module.css";
-import { getUser } from "../../data/users";
+import { getUserById } from "../../data/users";
+import { Avatar } from "../Avatar/Avatar";
 
-const user = getUser(0);
+const user = getUserById(0);
 
 export function Sidebar() {
   return (
@@ -15,7 +16,7 @@ export function Sidebar() {
       />
 
       <div className={styles.profile}>
-        <img src={user.avatar} alt={`${user.name}'s avatar`} />
+        <Avatar size={7.5} user={user} />
 
         <strong>{user.name}</strong>
         <span>{user.role}</span>
