@@ -1,0 +1,23 @@
+.content {
+  margin-top: 1rem;
+  color: var(gray-300);
+}
+
+.post {
+  line-height: 1.6;
+  margin-top: 1.5rem;
+}
+
+.comment {
+  margin-top: 1rem;
+}
+
+.content a {
+  font-weight: bold;
+  color: var(--deep-purple);
+  text-decoration: none;
+}
+
+.content a:hover {
+  color: var(--purple);
+}

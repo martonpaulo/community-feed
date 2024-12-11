@@ -48,8 +48,10 @@ Future improvements to consider:
 - [ ] Add screenshots to the README file
 - [ ] Host the project on GitHub Pages
 - [ ] Rewrite the README file with more detailed instructions and images/emojis
-- [ ] Only display delete button on user posts if the user is the author
-- [ ] Only show comment button when the user types a non-empty comment
+- [ ] Only display the delete button on user posts if the user is the author
+- [ ] Only show the comment button when the user types a non-empty comment
+- [ ] Display the string "You" instead of the user's name when the user is the author of a post/comment
+- [ ] Adding a comment should be part of a service that sends a POST request to the API
 
 ## License
 

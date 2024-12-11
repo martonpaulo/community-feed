@@ -1,25 +1,24 @@
 import { Pencil } from "phosphor-react";
 
 import styles from "./Sidebar.module.css";
-import { getUserById } from "../../data/users";
-import { Avatar } from "../Avatar/Avatar";
+import { Avatar } from "@/components/Avatar/Avatar";
 
-const user = getUserById(0);
+export function Sidebar({ user }) {
+  const { name, role, coverUrl } = user;
 
-export function Sidebar() {
   return (
     <aside className={styles.sidebar}>
       <img
         className={styles.cover}
-        src={user.cover}
-        alt={`${user.name}'s cover picture`}
+        src={coverUrl}
+        alt={`${name}'s cover picture`}
       />
 
       <div className={styles.profile}>
         <Avatar size={7.5} user={user} />
 
-        <strong>{user.name}</strong>
-        <span>{user.role}</span>
+        <strong>{name}</strong>
+        <span>{role}</span>
       </div>
 
       <footer>

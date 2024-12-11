@@ -1,5 +1,4 @@
-export function formatDate(timestamp) {
-  const date = new Date(timestamp);
+export function formatDate(date) {
   const options = {
     year: "numeric",
     month: "long",
@@ -11,9 +10,8 @@ export function formatDate(timestamp) {
   return `Published on ${date.toLocaleDateString("en-US", options)}`;
 }
 
-export function timeAgo(timestamp) {
+export function timeAgo(past) {
   const now = new Date();
-  const past = new Date(timestamp);
   const seconds = Math.floor((now - past) / 1000);
 
   const intervals = [
@@ -36,4 +34,8 @@ export function timeAgo(timestamp) {
   }
 
   return "just now";
+}
+
+export function getISODate(date) {
+  return date.toISOString();
 }

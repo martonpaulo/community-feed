@@ -1,0 +1,6 @@
+.timeAgo {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--gray-400);
+}

@@ -1,14 +1,11 @@
 import { HandsClapping, Trash } from "phosphor-react";
-import { getUserById } from "../../data/users";
-import { formatDate, timeAgo } from "../../utils/dateFormatter";
+import { TimeAgo } from "@/components/TimeAgo/TimeAgo";
 
 import styles from "./Comment.module.css";
-import { Avatar } from "../Avatar/Avatar";
+import { Avatar } from "@/components/Avatar/Avatar";
+import { Content } from "@/components/Content/Content";
 
-export function Comment({ data }) {
-  const { authorId, content, timestamp, applauses } = data;
-  const author = getUserById(authorId);
-
+export function Comment({ author, content, publishedAt, applauses }) {
   return (
     <div className={styles.comment}>
       <Avatar size={3} user={author} />
@@ -18,16 +15,15 @@ export function Comment({ data }) {
           <header>
             <div className={styles.authorAndTime}>
               <strong>{author.name}</strong>
-              <time title={formatDate(timestamp)} dateTime={timestamp}>
-                <small>{timeAgo(timestamp)}</small>
-              </time>
+
+              <TimeAgo timestamp={publishedAt} />
             </div>
 
             <button title="Delete comment">
               <Trash size={24} />
             </button>
           </header>
-          <div dangerouslySetInnerHTML={{ __html: content }}></div>
+          <Content type="comment" content={content} />
         </div>
         <footer>
           <button>

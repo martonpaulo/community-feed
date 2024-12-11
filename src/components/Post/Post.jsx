@@ -1,19 +1,41 @@
-import { getUserById } from "../../data/users";
-import { formatDate, timeAgo } from "../../utils/dateFormatter";
-import { Avatar } from "../Avatar/Avatar";
-import { Comment } from "../Comment/Comment";
+import { TimeAgo } from "@/components/TimeAgo/TimeAgo";
+import { Avatar } from "@/components/Avatar/Avatar";
+import { Comment } from "@/components/Comment/Comment";
 
 import styles from "./Post.module.css";
+import { Content } from "@/components/Content/Content";
+import { getUserById } from "@/data/users";
+import { useState } from "react";
+import { parseText } from "@/utils/textParser";
 
-export function Post({ data }) {
-  const { authorId, content, timestamp, comments } = data;
-  const author = getUserById(authorId);
+export function Post({ author, content, publishedAt, comments }) {
+  const [commentList, setCommentList] = useState(comments);
+  const [newCommentText, setNewCommentText] = useState("");
+
+  function handleCommentSubmit(event) {
+    event.preventDefault();
+
+    const newComment = {
+      id: commentList.length + 1,
+      authorId: 1,
+      content: parseText(newCommentText),
+      publishedAt: new Date(),
+      applauses: 0,
+    };
+
+    setCommentList((commentList) => [...commentList, newComment]);
+    setNewCommentText("");
+  }
+
+  function handleNewCommentChange(event) {
+    setNewCommentText(event.target.value);
+  }
 
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar size={4} className={styles.avatar} user={author} />
+          <Avatar size={4} className={styles.avatarUrl} user={author} />
 
           <div className={styles.authorInfo}>
             <strong>{author.name}</strong>
@@ -21,20 +43,20 @@ export function Post({ data }) {
           </div>
         </div>
 
-        <time title={formatDate(timestamp)} dateTime={timestamp}>
-          <small>{timeAgo(timestamp)}</small>
-        </time>
+        <TimeAgo timestamp={publishedAt} />
       </header>
 
-      <div
-        className={styles.content}
-        dangerouslySetInnerHTML={{ __html: content }}
-      ></div>
+      <Content content={content} />
 
-      <form className={styles.commentForm}>
+      <form onSubmit={handleCommentSubmit} className={styles.commentForm}>
         <strong>Give your feedback</strong>
 
-        <textarea placeholder="Add a comment..."></textarea>
+        <textarea
+          placeholder="Add a comment..."
+          name="comment"
+          value={newCommentText}
+          onChange={handleNewCommentChange}
+        />
 
         <footer>
           <button type="submit">Comment</button>
@@ -42,9 +64,17 @@ export function Post({ data }) {
       </form>
 
       <div className={styles.commentList}>
-        {comments.length > 0 &&
-          comments
-            .map((comment) => <Comment key={comment.id} data={comment} />)
+        {commentList.length > 0 &&
+          commentList
+            .map((comment) => (
+              <Comment
+                key={comment.id}
+                author={getUserById(comment.authorId)}
+                content={comment.content}
+                publishedAt={comment.publishedAt}
+                applauses={comment.applauses}
+              />
+            ))
             .reverse()}
       </div>
     </article>

@@ -1,12 +1,13 @@
-import { Header } from "./components/Header/Header";
-import { Post } from "./components/Post/Post";
-import { Sidebar } from "./components/Sidebar/Sidebar";
+import { Header } from "@/components/Header/Header";
+import { Post } from "@/components/Post/Post";
+import { Sidebar } from "@/components/Sidebar/Sidebar";
 
-import { posts } from "./data/posts";
+import { posts } from "@/data/posts";
 
 import styles from "./App.module.css";
 
-import "./global.css";
+import "@/styles/global.css";
+import { getUserById } from "@/data/users";
 
 export function App() {
   return (
@@ -14,10 +15,20 @@ export function App() {
       <Header />
 
       <div className={styles.wrapper}>
-        <Sidebar />
+        <Sidebar user={getUserById(1)} />
 
         <main>
-          {posts.map((post) => <Post key={post.id} data={post} />).reverse()}
+          {posts
+            .map((post) => (
+              <Post
+                key={post.id}
+                author={getUserById(post.authorId)}
+                content={post.content}
+                publishedAt={post.publishedAt}
+                comments={post.comments}
+              />
+            ))
+            .reverse()}
         </main>
       </div>
     </div>

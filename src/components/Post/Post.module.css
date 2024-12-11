@@ -8,35 +8,10 @@
   margin-top: 2rem;
 }
 
-.content {
-  line-height: 1.6;
-  color: var(gray-300);
-  margin-top: 1.5rem;
-}
-
-.content p {
-  margin-top: 1rem;
-}
-
-.content a {
-  font-weight: bold;
-  color: var(--deep-purple);
-  text-decoration: none;
-}
-
-.content a:hover {
-  color: var(--purple);
-}
-
 .post > header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.post > header time {
-  font-size: 0.875rem;
-  color: var(--gray-400);
 }
 
 .author {
