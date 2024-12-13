@@ -28,7 +28,7 @@ jobs:
           cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci  # Using `npm ci` to clean install dependencies
 
       - name: TypeScript type check
         run: npx tsc --noEmit
