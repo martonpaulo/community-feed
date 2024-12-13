@@ -29,7 +29,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          rm -rf node_modules package-lock.json
+          rm -rf node_modules
           npm ci  # Using `npm ci` to clean install dependencies
 
       - name: Run Jest tests
@@ -53,7 +53,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          rm -rf node_modules package-lock.json
+          rm -rf node_modules
           npm ci  # Using `npm ci` to clean install dependencies
 
       - name: TypeScript type check
@@ -76,5 +76,8 @@ jobs:
     needs: build
 
     steps:
+      - name: Download artifact
+        uses: actions/download-pages-artifact@v3
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
