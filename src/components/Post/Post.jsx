@@ -1,18 +1,18 @@
+import { useState } from "react";
 import { TimeAgo } from "@/components/TimeAgo/TimeAgo";
 import { Avatar } from "@/components/Avatar/Avatar";
 import { Comment } from "@/components/Comment/Comment";
-
-import styles from "./Post.module.css";
 import { Content } from "@/components/Content/Content";
 import { getUserById } from "@/data/users";
-import { useState } from "react";
 import { parseText } from "@/utils/textParser";
+
+import styles from "./Post.module.css";
 
 export function Post({ author, content, publishedAt, comments }) {
   const [commentList, setCommentList] = useState(comments);
   const [newCommentText, setNewCommentText] = useState("");
 
-  function handleCommentSubmit(event) {
+  const handleCommentSubmit = (event) => {
     event.preventDefault();
 
     const newComment = {
@@ -23,26 +23,37 @@ export function Post({ author, content, publishedAt, comments }) {
       applauses: 0,
     };
 
-    setCommentList((commentList) => [...commentList, newComment]);
+    setCommentList((prevComments) => [...prevComments, newComment]);
     setNewCommentText("");
-  }
+  };
 
-  function handleNewCommentChange(event) {
+  const handleNewCommentChange = (event) => {
+    event.target.setCustomValidity("");
     setNewCommentText(event.target.value);
-  }
+  };
+
+  const handleNewCommentInvalid = (event) => {
+    event.target.setCustomValidity("Please add a comment before submitting.");
+  };
+
+  const deleteComment = (commentId) => {
+    setCommentList((prevComments) =>
+      prevComments.filter((comment) => comment.id !== commentId)
+    );
+  };
+
+  const isNewCommentEmpty = newCommentText.trim() === "";
 
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
           <Avatar size={4} className={styles.avatarUrl} user={author} />
-
           <div className={styles.authorInfo}>
             <strong>{author.name}</strong>
             <span>{author.role}</span>
           </div>
         </div>
-
         <TimeAgo timestamp={publishedAt} />
       </header>
 
@@ -50,32 +61,36 @@ export function Post({ author, content, publishedAt, comments }) {
 
       <form onSubmit={handleCommentSubmit} className={styles.commentForm}>
         <strong>Give your feedback</strong>
-
         <textarea
           placeholder="Add a comment..."
           name="comment"
           value={newCommentText}
           onChange={handleNewCommentChange}
+          onInvalid={handleNewCommentInvalid}
+          required
         />
-
         <footer>
-          <button type="submit">Comment</button>
+          <button type="submit" disabled={isNewCommentEmpty}>
+            Comment
+          </button>
         </footer>
       </form>
 
       <div className={styles.commentList}>
-        {commentList.length > 0 &&
-          commentList
-            .map((comment) => (
-              <Comment
-                key={comment.id}
-                author={getUserById(comment.authorId)}
-                content={comment.content}
-                publishedAt={comment.publishedAt}
-                applauses={comment.applauses}
-              />
-            ))
-            .reverse()}
+        {commentList
+          .slice()
+          .reverse()
+          .map((comment) => (
+            <Comment
+              key={comment.id}
+              id={comment.id}
+              author={getUserById(comment.authorId)}
+              content={comment.content}
+              publishedAt={comment.publishedAt}
+              applauses={comment.applauses}
+              onDeleteComment={deleteComment}
+            />
+          ))}
       </div>
     </article>
   );

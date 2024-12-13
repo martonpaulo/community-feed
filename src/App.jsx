@@ -19,6 +19,8 @@ export function App() {
 
         <main>
           {posts
+            .slice()
+            .reverse()
             .map((post) => (
               <Post
                 key={post.id}
@@ -27,8 +29,7 @@ export function App() {
                 publishedAt={post.publishedAt}
                 comments={post.comments}
               />
-            ))
-            .reverse()}
+            ))}
         </main>
       </div>
     </div>
