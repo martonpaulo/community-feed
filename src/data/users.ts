@@ -1,4 +1,6 @@
-const users = [
+import type { UserType } from "../types/userType";
+
+const users: UserType[] = [
   {
     id: 1,
     name: "Alex Doe",
@@ -39,6 +41,6 @@ const users = [
   },
 ];
 
-export function getUserById(id) {
+export function getUserById(id: number): UserType | undefined {
   return users.find((user) => user.id === id);
 }

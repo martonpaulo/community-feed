@@ -1,18 +1,29 @@
 import { useState } from "react";
-import { TimeAgo } from "@/components/TimeAgo/TimeAgo";
-import { Avatar } from "@/components/Avatar/Avatar";
-import { Comment } from "@/components/Comment/Comment";
-import { Content } from "@/components/Content/Content";
-import { getUserById } from "@/data/users";
-import { parseText } from "@/utils/textParser";
+import { TimeAgo } from "../TimeAgo/TimeAgo";
+import { Avatar } from "../Avatar/Avatar";
+import { Comment } from "../Comment/Comment";
+import { Content } from "../Content/Content";
+import { getUserById } from "../../data/users";
+import { parseText } from "../../utils/textParser";
 
 import styles from "./Post.module.css";
+import type { PostType } from "../../types/postType";
+import type { UserType } from "../../types/userType";
 
-export function Post({ author, content, publishedAt, comments }) {
+interface PostProps {
+  postData: PostType;
+  authorData: UserType;
+}
+
+export function Post({ postData, authorData }: PostProps) {
+  const { content, publishedAt, comments } = postData;
+  const authorName = authorData.name;
+  const authorRole = authorData.role;
+
   const [commentList, setCommentList] = useState(comments);
   const [newCommentText, setNewCommentText] = useState("");
 
-  const handleCommentSubmit = (event) => {
+  const handleCommentSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const newComment = {
@@ -27,16 +38,20 @@ export function Post({ author, content, publishedAt, comments }) {
     setNewCommentText("");
   };
 
-  const handleNewCommentChange = (event) => {
+  const handleNewCommentChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     event.target.setCustomValidity("");
     setNewCommentText(event.target.value);
   };
 
-  const handleNewCommentInvalid = (event) => {
+  const handleNewCommentInvalid = (
+    event: React.InvalidEvent<HTMLTextAreaElement>
+  ) => {
     event.target.setCustomValidity("Please add a comment before submitting.");
   };
 
-  const deleteComment = (commentId) => {
+  const deleteComment = (commentId: number) => {
     setCommentList((prevComments) =>
       prevComments.filter((comment) => comment.id !== commentId)
     );
@@ -48,10 +63,10 @@ export function Post({ author, content, publishedAt, comments }) {
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar size={4} className={styles.avatarUrl} user={author} />
+          <Avatar size={4} user={authorData} />
           <div className={styles.authorInfo}>
-            <strong>{author.name}</strong>
-            <span>{author.role}</span>
+            <strong>{authorName}</strong>
+            <span>{authorRole}</span>
           </div>
         </div>
         <TimeAgo timestamp={publishedAt} />
@@ -80,17 +95,19 @@ export function Post({ author, content, publishedAt, comments }) {
         {commentList
           .slice()
           .reverse()
-          .map((comment) => (
-            <Comment
-              key={comment.id}
-              id={comment.id}
-              author={getUserById(comment.authorId)}
-              content={comment.content}
-              publishedAt={comment.publishedAt}
-              applauses={comment.applauses}
-              onDeleteComment={deleteComment}
-            />
-          ))}
+          .map((comment) => {
+            const author = getUserById(comment.authorId);
+            return (
+              author && (
+                <Comment
+                  key={comment.id}
+                  commentData={comment}
+                  authorData={author}
+                  onDeleteComment={deleteComment}
+                />
+              )
+            );
+          })}
       </div>
     </article>
   );

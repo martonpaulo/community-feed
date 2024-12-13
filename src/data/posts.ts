@@ -1,4 +1,6 @@
-export const posts = [
+import type { PostType } from "../types/postType";
+
+export const posts: PostType[] = [
   {
     id: 1,
     authorId: 1,

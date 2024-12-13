@@ -1,5 +1,5 @@
-export function formatDate(date) {
-  const options = {
+export function formatDate(date: Date): string {
+  const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -10,11 +10,11 @@ export function formatDate(date) {
   return `Published on ${date.toLocaleDateString("en-US", options)}`;
 }
 
-export function timeAgo(past) {
+export function timeAgo(past: Date): string {
   const now = new Date();
-  const seconds = Math.floor((now - past) / 1000);
+  const seconds = Math.floor((now.getTime() - past.getTime()) / 1000);
 
-  const intervals = [
+  const intervals: { label: string; seconds: number }[] = [
     { label: "year", seconds: 31536000 },
     { label: "month", seconds: 2592000 },
     { label: "week", seconds: 604800 },
@@ -24,18 +24,16 @@ export function timeAgo(past) {
     { label: "second", seconds: 1 },
   ];
 
-  for (const interval of intervals) {
-    const count = Math.floor(seconds / interval.seconds);
+  for (const { label, seconds: intervalSeconds } of intervals) {
+    const count = Math.floor(seconds / intervalSeconds);
     if (count >= 1) {
-      return count === 1
-        ? `1 ${interval.label} ago`
-        : `${count} ${interval.label}s ago`;
+      return `${count} ${label}${count > 1 ? "s" : ""} ago`;
     }
   }
 
   return "just now";
 }
 
-export function getISODate(date) {
+export function getISODate(date: Date): string {
   return date.toISOString();
 }

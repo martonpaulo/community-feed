@@ -1,19 +1,27 @@
 import { HandsClapping, Trash } from "phosphor-react";
-import { TimeAgo } from "@/components/TimeAgo/TimeAgo";
+import { TimeAgo } from "../TimeAgo/TimeAgo";
 
 import styles from "./Comment.module.css";
-import { Avatar } from "@/components/Avatar/Avatar";
-import { Content } from "@/components/Content/Content";
+import { Avatar } from "../Avatar/Avatar";
+import { Content } from "../Content/Content";
 import { useState } from "react";
+import type { CommentType } from "../../types/commentType";
+import type { UserType } from "../../types/userType";
+
+interface CommentProps {
+  commentData: CommentType;
+  authorData: UserType;
+  onDeleteComment: (commentId: number) => void;
+}
 
 export function Comment({
-  id,
-  author,
-  content,
-  publishedAt,
-  applauses,
+  commentData,
+  authorData,
   onDeleteComment,
-}) {
+}: CommentProps) {
+  const { id, content, publishedAt, applauses } = commentData;
+  const authorName = authorData.name;
+
   const [applauseCount, setApplauseCount] = useState(applauses);
 
   const handleDeleteComment = () => {
@@ -26,13 +34,13 @@ export function Comment({
 
   return (
     <div className={styles.comment}>
-      <Avatar size={3} user={author} />
+      <Avatar size={3} user={authorData} />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
             <div className={styles.authorAndTime}>
-              <strong>{author.name}</strong>
+              <strong>{authorName}</strong>
 
               <TimeAgo timestamp={publishedAt} />
             </div>

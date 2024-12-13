@@ -1,9 +1,15 @@
 import { Pencil } from "phosphor-react";
 
 import styles from "./Sidebar.module.css";
-import { Avatar } from "@/components/Avatar/Avatar";
+import { Avatar } from "../Avatar/Avatar";
 
-export function Sidebar({ user }) {
+import type { UserType } from "../../types/userType";
+
+interface SideBarProps {
+  user: UserType;
+}
+
+export function Sidebar({ user }: SideBarProps) {
   const { name, role, coverUrl } = user;
 
   return (

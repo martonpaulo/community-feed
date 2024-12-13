@@ -11,6 +11,7 @@ Initial design available on [Figma](https://www.figma.com/design/6MfaDPdEh4Ke2CO
 This project utilizes the following technologies:
 
 - **React** - JavaScript library for building user interfaces
+- **TypeScript** - Typed JavaScript at any scale
 - **Vite** - Fast build tool and development server
 - **CSS Modules** - Scoped and modular CSS
 - **Google Fonts** - Free and beautiful fonts
@@ -42,7 +43,7 @@ In the project directory, you can run the following scripts:
 Future improvements to consider:
 
 - [ ] Retrieve all user data from the Random User API
-- [ ] Integrate TypeScript into the project
+- [x] Integrate TypeScript into the project
 - [x] Make the feed responsive for mobile devices
 - [ ] Add linting and formatting to the project
 - [ ] Add screenshots to the README file
