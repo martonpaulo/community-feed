@@ -54,8 +54,8 @@ Future improvements to consider:
 - [x] Add linting and formatting to the project
 - [ ] Display a modal when deleting a comment to confirm the action
 - [ ] Display a modal for editing profile button saying that the feature is not available yet
-- [ ] Retrieve all user data from the Random User API
-- [ ] Adding a comment should be part of a service that sends a POST request to the API
+- [x] ~~Retrieve all user data from the Random User API~~
+- [x] ~~Adding a comment should be part of a service that sends a POST request to the API~~
 - [ ] Display the string "You" instead of the user's name when the user is the author of a post/comment
 - [ ] Only display the delete button on user posts if the user is the author
 - [ ] Add screenshots to the README file
