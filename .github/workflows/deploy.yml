@@ -34,7 +34,7 @@ jobs:
         run: npx tsc --noEmit
 
       - name: Lint code
-        run: npx eslint src --ext .tsx,.ts
+        run: npx eslint "src/**/*.{tsx,ts}"
 
       - name: Build project
         run: npm run build
