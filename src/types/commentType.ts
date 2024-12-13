@@ -1,4 +1,4 @@
-import type { FragmentType } from "./fragmentType";
+import type { FragmentType } from './fragmentType';
 
 export interface CommentType {
   id: number;

@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { TimeAgo } from "../TimeAgo/TimeAgo";
-import { Avatar } from "../Avatar/Avatar";
-import { Comment } from "../Comment/Comment";
-import { Content } from "../Content/Content";
-import { getUserById } from "../../data/users";
-import { parseText } from "../../utils/textParser";
+import { useState } from 'react';
+import { TimeAgo } from '../TimeAgo/TimeAgo';
+import { Avatar } from '../Avatar/Avatar';
+import { Comment } from '../Comment/Comment';
+import { Content } from '../Content/Content';
+import { getUserById } from '../../data/users';
+import { parseText } from '../../utils/textParser';
 
-import styles from "./Post.module.css";
-import type { PostType } from "../../types/postType";
-import type { UserType } from "../../types/userType";
+import styles from './Post.module.css';
+import type { PostType } from '../../types/postType';
+import type { UserType } from '../../types/userType';
 
 interface PostProps {
   postData: PostType;
@@ -21,7 +21,7 @@ export function Post({ postData, authorData }: PostProps) {
   const authorRole = authorData.role;
 
   const [commentList, setCommentList] = useState(comments);
-  const [newCommentText, setNewCommentText] = useState("");
+  const [newCommentText, setNewCommentText] = useState('');
 
   const handleCommentSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -35,29 +35,29 @@ export function Post({ postData, authorData }: PostProps) {
     };
 
     setCommentList((prevComments) => [...prevComments, newComment]);
-    setNewCommentText("");
+    setNewCommentText('');
   };
 
   const handleNewCommentChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
-    event.target.setCustomValidity("");
+    event.target.setCustomValidity('');
     setNewCommentText(event.target.value);
   };
 
   const handleNewCommentInvalid = (
-    event: React.InvalidEvent<HTMLTextAreaElement>
+    event: React.InvalidEvent<HTMLTextAreaElement>,
   ) => {
-    event.target.setCustomValidity("Please add a comment before submitting.");
+    event.target.setCustomValidity('Please add a comment before submitting.');
   };
 
   const deleteComment = (commentId: number) => {
     setCommentList((prevComments) =>
-      prevComments.filter((comment) => comment.id !== commentId)
+      prevComments.filter((comment) => comment.id !== commentId),
     );
   };
 
-  const isNewCommentEmpty = newCommentText.trim() === "";
+  const isNewCommentEmpty = newCommentText.trim() === '';
 
   return (
     <article className={styles.post}>

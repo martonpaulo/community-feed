@@ -1,15 +1,11 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
+  "references": [],
   "compilerOptions": {
     "baseUrl": "./src",
     "outDir": "./dist",
-    "rootDir": "./src",
-    "target": "es5",
-    "module": "commonjs",
+    "rootDir": ".",
+    "target": "ES2022",
+    "module": "ESNext",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -18,7 +14,16 @@
     "isolatedModules": true,
     "noEmit": true,
     "incremental": true,
-    "tsBuildInfoFile": "./dist/.tsbuildinfo"
+    "tsBuildInfoFile": "./dist/.tsbuildinfo",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
   },
-  "exclude": ["node_modules"]
+  "include": ["src", "vite.config.ts"]
 }

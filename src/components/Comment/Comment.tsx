@@ -1,12 +1,12 @@
-import { HandsClapping, Trash } from "phosphor-react";
-import { TimeAgo } from "../TimeAgo/TimeAgo";
+import { HandsClapping, Trash } from 'phosphor-react';
+import { TimeAgo } from '../TimeAgo/TimeAgo';
 
-import styles from "./Comment.module.css";
-import { Avatar } from "../Avatar/Avatar";
-import { Content } from "../Content/Content";
-import { useState } from "react";
-import type { CommentType } from "../../types/commentType";
-import type { UserType } from "../../types/userType";
+import styles from './Comment.module.css';
+import { Avatar } from '../Avatar/Avatar';
+import { Content } from '../Content/Content';
+import { useState } from 'react';
+import type { CommentType } from '../../types/commentType';
+import type { UserType } from '../../types/userType';
 
 interface CommentProps {
   commentData: CommentType;

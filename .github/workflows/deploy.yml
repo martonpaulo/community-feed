@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
+          node-version: 'lts/*'
           cache: npm
           cache-dependency-path: package-lock.json
 
@@ -48,7 +48,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
+          node-version: 'lts/*'
           cache: npm
           cache-dependency-path: package-lock.json
 
@@ -60,6 +60,9 @@ jobs:
 
       - name: TypeScript type check
         run: npx tsc --noEmit
+
+      - name: Lint code
+        run: npm run lint
 
       - name: Lint code
         run: npx eslint "src/**/*.{tsx,ts}"

@@ -1,5 +1,5 @@
-import type { CommentType } from "./commentType";
-import type { FragmentType } from "./fragmentType";
+import type { CommentType } from './commentType';
+import type { FragmentType } from './fragmentType';
 
 export interface PostType {
   id: number;

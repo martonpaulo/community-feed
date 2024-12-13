@@ -1,9 +1,9 @@
-import { Pencil } from "phosphor-react";
+import { Pencil } from 'phosphor-react';
 
-import styles from "./Sidebar.module.css";
-import { Avatar } from "../Avatar/Avatar";
+import styles from './Sidebar.module.css';
+import { Avatar } from '../Avatar/Avatar';
 
-import type { UserType } from "../../types/userType";
+import type { UserType } from '../../types/userType';
 
 interface SideBarProps {
   user: UserType;

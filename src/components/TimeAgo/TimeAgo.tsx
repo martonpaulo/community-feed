@@ -1,5 +1,5 @@
-import { formatDate, timeAgo, getISODate } from "../../utils/dateFormatter";
-import styles from "./TimeAgo.module.css";
+import { formatDate, timeAgo, getISODate } from '../../utils/dateFormatter';
+import styles from './TimeAgo.module.css';
 
 interface TimeAgoProps {
   timestamp: Date;

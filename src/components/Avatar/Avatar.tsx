@@ -1,5 +1,5 @@
-import type { UserType } from "../../types/userType";
-import styles from "./Avatar.module.css";
+import type { UserType } from '../../types/userType';
+import styles from './Avatar.module.css';
 
 interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   size: number;

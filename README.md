@@ -14,10 +14,14 @@ This project utilizes the following technologies:
 - **TypeScript** - Typed JavaScript at any scale
 - **Vite** - Fast build tool and development server
 - **CSS Modules** - Scoped and modular CSS
-- **Google Fonts** - Free and beautiful fonts
-- **Phosphor Icons** - Customizable and flexible icons
-- **Unsplash API** - High-quality images from Unsplash
+- **ESLint** - Pluggable JavaScript linter
+- **Prettier** - Opinionated code formatter
+- **Jest** - Delightful JavaScript testing
 - **Random User API** - Random user data for showing user profiles
+- **Unsplash API** - High-quality images from Unsplash
+- **Phosphor Icons** - Customizable and flexible icons
+- **Google Fonts** - Free and beautiful fonts
+- **GitHub Pages** - Static site hosting
 
 ## Getting Started
 
@@ -34,6 +38,7 @@ npm install
 In the project directory, you can run the following scripts:
 
 - `npm run dev` - Start the development server at `http://localhost:3000`
+- `npm run test` - Run the test suite
 - `npm run build` - Build the project for production
 - `npm run lint` - Lint the code using ESLint
 - `npm run preview` - Preview the production build locally
@@ -42,18 +47,19 @@ In the project directory, you can run the following scripts:
 
 Future improvements to consider:
 
-- [ ] Retrieve all user data from the Random User API
-- [x] Integrate TypeScript into the project
 - [x] Make the feed responsive for mobile devices
-- [ ] Add linting and formatting to the project
-- [ ] Add screenshots to the README file
 - [x] Host the project on GitHub Pages
-- [ ] Rewrite the README file with more detailed instructions and images/emojis
-- [ ] Only display the delete button on user posts if the user is the author
 - [x] Only show the comment button when the user types a non-empty comment
-- [ ] Display the string "You" instead of the user's name when the user is the author of a post/comment
-- [ ] Adding a comment should be part of a service that sends a POST request to the API
+- [x] Integrate TypeScript into the project
+- [x] Add linting and formatting to the project
 - [ ] Display a modal when deleting a comment to confirm the action
+- [ ] Display a modal for editing profile button saying that the feature is not available yet
+- [ ] Retrieve all user data from the Random User API
+- [ ] Adding a comment should be part of a service that sends a POST request to the API
+- [ ] Display the string "You" instead of the user's name when the user is the author of a post/comment
+- [ ] Only display the delete button on user posts if the user is the author
+- [ ] Add screenshots to the README file
+- [ ] Rewrite the README file with more detailed instructions and images/emojis
 
 ## License
 

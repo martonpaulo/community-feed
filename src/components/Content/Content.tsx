@@ -1,16 +1,16 @@
-import React from "react";
-import styles from "./Content.module.css";
-import type { FragmentType } from "../../types/fragmentType";
+import React from 'react';
+import styles from './Content.module.css';
+import type { FragmentType } from '../../types/fragmentType';
 
 interface ContentProps {
-  type?: "post" | "comment";
+  type?: 'post' | 'comment';
   content: FragmentType[][];
 }
 
-export function Content({ type = "post", content }: ContentProps) {
+export function Content({ type = 'post', content }: ContentProps) {
   const getClassName = () => {
     const baseClass = styles.content;
-    const typeClass = type === "post" ? styles.post : styles.comment;
+    const typeClass = type === 'post' ? styles.post : styles.comment;
     return `${baseClass} ${typeClass}`.trim();
   };
 
@@ -40,7 +40,7 @@ export function Content({ type = "post", content }: ContentProps) {
       {content.map((line, lineIndex) => (
         <p className={getClassName()} key={lineIndex}>
           {line.map((fragment, fragIndex) =>
-            renderFragment(fragment, fragIndex === line.length - 1)
+            renderFragment(fragment, fragIndex === line.length - 1),
           )}
         </p>
       ))}

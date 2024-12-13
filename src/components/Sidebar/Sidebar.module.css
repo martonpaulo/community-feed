@@ -57,7 +57,9 @@
 
   gap: 0.5rem;
 
-  transition: color 0.1s, background 0.1s;
+  transition:
+    color 0.1s,
+    background 0.1s;
 }
 
 .sidebar footer a:hover {
