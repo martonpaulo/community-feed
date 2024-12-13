@@ -79,7 +79,7 @@ jobs:
 
     steps:
       - name: Download artifact
-        uses: actions/download-pages-artifact@v3
+        uses: actions/download-artifact@v3
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
