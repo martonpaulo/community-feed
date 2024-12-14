@@ -1,6 +1,6 @@
-<h1 align="center">Community Feed</h1>
+# Community Feed
 
-<div align="center">
+<div>
   <a href="https://github.com/martonpaulo/community-feed/blob/main/LICENSE">
     <img
       src="https://img.shields.io/github/license/martonpaulo/community-feed"
@@ -30,7 +30,7 @@
   </a>
 </div>
 
-<div align="center">
+<div>
   <a href="https://github.com/martonpaulo/community-feed/actions/workflows/deploy.yml">
     <img
       src="https://github.com/martonpaulo/community-feed/actions/workflows/deploy.yml/badge.svg"
@@ -41,8 +41,13 @@
 
 <br />
 
-
 Welcome to the **Community Feed** project! 🚀 This project simulates a social media feed, featuring functionalities such as commenting, applauding, and deleting comments. It is a React application using Vite, designed to practice important React concepts, including componentization, props, state, immutability, and hooks. Additionally, TypeScript is applied to add static typing to the application.
+
+<br />
+
+<img alt="Recording of live application" src="public/recording.gif" />
+
+<br />
 
 Inspired by a tutorial from [RocketSeat](https://www.rocketseat.com.br/).
 
