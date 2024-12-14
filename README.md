@@ -1,34 +1,32 @@
 # Community Feed
 
-Welcome to the **Community Feed** project! This is a sleek and modern feed application built using the latest web technologies.
+![GitHub license](https://img.shields.io/github/license/martonpaulo/community-feed)
+![GitHub last commit](https://img.shields.io/github/last-commit/martonpaulo/community-feed)
+![GitHub package dependencies](https://img.shields.io/github/package-json/dependency-version/martonpaulo/community-feed/react)
+![GitHub package dev dependencies](https://img.shields.io/github/package-json/dependency-version/martonpaulo/community-feed/dev/typescript)
+
+Welcome to the **Community Feed** project! This project simulates a social media feed, featuring functionalities such as commenting, applauding, and deleting comments. It is a React application using Vite, designed to practice important React concepts, including componentization, props, state, immutability, and hooks. Additionally, TypeScript is applied to add static typing to the application.
 
 Inspired by a tutorial from [RocketSeat](https://www.rocketseat.com.br/).
 
 Initial design available on [Figma](https://www.figma.com/design/6MfaDPdEh4Ke2COT7xNBcB/Community-Feed).
 
-## Technologies Used
+This is a sleek and modern feed application built using the latest web technologies: **React**, **TypeScript**, **Vite**, **CSS Modules**, **ESLint**, **Prettier**, **Jest**, **Random User API**, **Unsplash API**, **Phosphor Icons**, **Google Fonts**, and **GitHub Pages**.
 
-This project utilizes the following technologies:
+## Live Project
 
-- **React** - JavaScript library for building user interfaces
-- **TypeScript** - Typed JavaScript at any scale
-- **Vite** - Fast build tool and development server
-- **CSS Modules** - Scoped and modular CSS
-- **ESLint** - Pluggable JavaScript linter
-- **Prettier** - Opinionated code formatter
-- **Jest** - Delightful JavaScript testing
-- **Random User API** - Random user data for showing user profiles
-- **Unsplash API** - High-quality images from Unsplash
-- **Phosphor Icons** - Customizable and flexible icons
-- **Google Fonts** - Free and beautiful fonts
-- **GitHub Pages** - Static site hosting
+This project is integrated with the GitHub Pages workflow. Once a commit is made, it is deployed and hosted by GitHub Pages.
+
+Live project at: [martonpaulo.github.com/community-feed](https://martonpaulo.github.com/community-feed)
+
+For more information about me and other projects, check out: [martonpaulo.com](https://martonpaulo.com)
 
 ## Getting Started
 
 To start working on this project, clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/yourusername/community-feed.git
+git clone https://github.com/martonpaulo/community-feed.git
 cd community-feed
 npm install
 ```
@@ -43,7 +41,7 @@ In the project directory, you can run the following scripts:
 - `npm run lint` - Lint the code using ESLint
 - `npm run preview` - Preview the production build locally
 
-## To Do List
+## To Be Implemented
 
 Future improvements to consider:
 
@@ -52,14 +50,14 @@ Future improvements to consider:
 - [x] Only show the comment button when the user types a non-empty comment
 - [x] Integrate TypeScript into the project
 - [x] Add linting and formatting to the project
-- [ ] Display a modal when deleting a comment to confirm the action
-- [ ] Display a modal for editing profile button saying that the feature is not available yet
 - [x] ~~Retrieve all user data from the Random User API~~
 - [x] ~~Adding a comment should be part of a service that sends a POST request to the API~~
+- [x] Rewrite the README file with more detailed instructions and images/emojis
+- [x] Add screenshots to the README file
+- [ ] Display a modal when deleting a comment to confirm the action
+- [ ] Display a modal for editing profile button saying that the feature is not available yet
 - [ ] Display the string "You" instead of the user's name when the user is the author of a post/comment
 - [ ] Only display the delete button on user posts if the user is the author
-- [ ] Add screenshots to the README file
-- [ ] Rewrite the README file with more detailed instructions and images/emojis
 
 ## License
 

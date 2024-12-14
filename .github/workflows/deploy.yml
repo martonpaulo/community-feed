@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+      - 'node_modules/**'
+      - 'dist/**'
   workflow_dispatch:
 
 permissions:
