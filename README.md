@@ -1,9 +1,46 @@
-# 📰 Community Feed
+<h1 align="center">Community Feed</h1>
 
-![GitHub license](https://img.shields.io/github/license/martonpaulo/community-feed)
-![GitHub last commit](https://img.shields.io/github/last-commit/martonpaulo/community-feed)
-![GitHub package dependencies](https://img.shields.io/github/package-json/dependency-version/martonpaulo/community-feed/react)
-![GitHub package dev dependencies](https://img.shields.io/github/package-json/dependency-version/martonpaulo/community-feed/dev/typescript)
+<div align="center">
+  <a href="https://github.com/martonpaulo/community-feed/blob/main/LICENSE">
+    <img
+      src="https://img.shields.io/github/license/martonpaulo/community-feed"
+      alt="License"
+    />
+  </a>
+  
+  <a href="https://github.com/martonpaulo/community-feed/commits/main/">
+    <img
+      src="https://img.shields.io/github/last-commit/martonpaulo/community-feed"
+      alt="Last Commit"
+    />
+  </a>
+  
+  <a href="https://github.com/martonpaulo/community-feed/blob/main/package.json">
+    <img
+      src="https://img.shields.io/github/package-json/dependency-version/martonpaulo/community-feed/react"
+      alt="React Version"
+    />
+  </a>
+  
+  <a href="https://github.com/search?q=repo%3Amartonpaulo%2Fcommunity-feed++language%3ATypeScript">
+    <img
+      src="https://img.shields.io/github/package-json/dependency-version/martonpaulo/community-feed/dev/typescript"
+      alt="TypeScript Version"
+    />
+  </a>
+</div>
+
+<div align="center">
+  <a href="https://github.com/martonpaulo/community-feed/actions/workflows/deploy.yml">
+    <img
+      src="https://github.com/martonpaulo/community-feed/actions/workflows/deploy.yml/badge.svg"
+      alt="Test and Deploy status"
+    />
+  </a>
+</div>
+
+<br />
+
 
 Welcome to the **Community Feed** project! 🚀 This project simulates a social media feed, featuring functionalities such as commenting, applauding, and deleting comments. It is a React application using Vite, designed to practice important React concepts, including componentization, props, state, immutability, and hooks. Additionally, TypeScript is applied to add static typing to the application.
 
