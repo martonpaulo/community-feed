@@ -21,7 +21,7 @@ export const posts: PostType[] = [
         },
       ],
     ],
-    publishedAt: new Date('2024-12-09 8:03:02'),
+    publishedAt: new Date('2024-12-09 08:03:02'),
     comments: [
       {
         id: 1,
@@ -34,7 +34,7 @@ export const posts: PostType[] = [
             },
           ],
         ],
-        publishedAt: new Date('2024-12-11 8:47:19'),
+        publishedAt: new Date('2024-12-11 08:47:19'),
         applauses: 7,
       },
     ],
