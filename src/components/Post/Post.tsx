@@ -45,12 +45,6 @@ export function Post({ postData, authorData }: PostProps) {
     setNewCommentText(event.target.value);
   };
 
-  const handleNewCommentInvalid = (
-    event: React.InvalidEvent<HTMLTextAreaElement>,
-  ) => {
-    event.target.setCustomValidity('Please add a comment before submitting.');
-  };
-
   const deleteComment = (commentId: number) => {
     setCommentList((prevComments) =>
       prevComments.filter((comment) => comment.id !== commentId),
@@ -81,7 +75,6 @@ export function Post({ postData, authorData }: PostProps) {
           name="comment"
           value={newCommentText}
           onChange={handleNewCommentChange}
-          onInvalid={handleNewCommentInvalid}
           required
         />
         <footer>
