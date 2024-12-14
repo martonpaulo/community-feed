@@ -17,7 +17,7 @@ This is a sleek and modern feed application built using the latest web technolog
 
 This project is integrated with the GitHub Pages workflow. Once a commit is made, it is deployed and hosted by GitHub Pages.
 
-Live project at: [martonpaulo.github.com/community-feed](https://martonpaulo.github.com/community-feed)
+Live project at: [martonpaulo.github.io/community-feed](https://martonpaulo.github.io/community-feed)
 
 For more information about me and other projects, check out: [martonpaulo.com](https://martonpaulo.com)
 
